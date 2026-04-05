@@ -2,61 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sorry Lamia 💛</title>
   <style>
     body {
-      background: linear-gradient(to right, #ffd6e0, #ffe8cc);
-      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ffd6e0, #ffe8cc);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       text-align: center;
-      padding-top: 100px;
-    }
-    h1 {
-      font-size: 40px;
+      padding: 50px 20px;
       color: #333;
+      min-height: 100vh;
     }
-    p {
-      font-size: 18px;
-      color: #555;
-      max-width: 400px;
+    .container {
+      background: rgba(255, 255, 255, 0.5);
+      padding: 30px;
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      max-width: 500px;
       margin: auto;
     }
+    h1 {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+    .initial-text {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #555;
+    }
     button {
-      margin-top: 20px;
-      padding: 10px 20px;
+      margin-top: 25px;
+      padding: 12px 25px;
       border: none;
       background-color: #ff6b81;
       color: white;
-      border-radius: 20px;
+      border-radius: 25px;
       cursor: pointer;
       font-size: 16px;
+      transition: transform 0.2s;
+      box-shadow: 0 4px 15px rgba(255, 107, 129, 0.4);
+    }
+    button:hover {
+      transform: scale(1.05);
     }
     #hiddenMessage {
       display: none;
-      margin-top: 20px;
-      color: #444;
-      font-weight: bold;
+      margin-top: 30px;
+      text-align: left;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      border-left: 5px solid #ff6b81;
+      animation: fadeIn 1s;
+    }
+    .heart {
+      color: #ff6b81;
+      font-size: 24px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <h1>Sorry, Lamia 💛</h1>
+  <div class="container">
+    <h1>Sorry, Lamia <span class="heart">💛</span></h1>
 
-  <p>
-    I didn’t think about your class time properly…  
-    I know you don’t like being disturbed then.
-  </p>
+    <p class="initial-text">
+      I’ve been thinking about how I disturbed your class time... 
+      I realize now that your focus and your schedule are important, 
+      and I shouldn't have been so careless.
+    </p>
 
-  <button onclick="showMessage()">Click me 🙂</button>
+    <button onclick="showMessage()">Read my note 🙂</button>
 
-  <div id="hiddenMessage">
-    I’ll be more careful next time.  
-    Your space matters to me.
+    <div id="hiddenMessage">
+      <p><b>A few things I want to say:</b></p>
+      <ul>
+        <li>I'm truly sorry for the interruption.</li>
+        <li>I'll keep a better track of your class routine.</li>
+        <li>I promise to respect your "deep work" time more.</li>
+        <li>Your peace of mind matters more to me than a quick reply.</li>
+      </ul>
+      <p style="text-align: center; margin-top: 20px;">
+        Can we "merge" back to being okay? ✨
+      </p>
+    </div>
   </div>
 
   <script>
     function showMessage() {
-      document.getElementById("hiddenMessage").style.display = "block";
+      const msg = document.getElementById("hiddenMessage");
+      msg.style.display = "block";
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     }
   </script>
 
